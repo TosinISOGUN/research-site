@@ -36,7 +36,10 @@ export const timeline: TimelineItem[] = [
       'Evaluated on accuracy, precision, recall and F1: 0.80, 0.90, 0.82 and 0.86.',
       'Written up as a manuscript with Dr. Agagu (see Publications).',
     ],
-    links: [{ label: 'Reference implementation', href: 'https://github.com/TosinISOGUN/traffic-speed-homography' }],
+    links: [
+      { label: 'Code (DOI)', href: 'https://doi.org/10.5281/zenodo.23478205' },
+      { label: 'GitHub', href: 'https://github.com/TosinISOGUN/traffic-speed-homography' },
+    ],
   },
   {
     id: 'weather-prediction',
@@ -77,9 +80,10 @@ export const timeline: TimelineItem[] = [
     workTitle: 'Value-Aware RF-Enabled TinyML for Environmental Monitoring',
     place: 'Independent project',
     summary:
-      'Released an open, tested reference implementation of the paper’s computational experiment. It reproduces the data split and the Random Forest accuracy exactly, and the paper’s main finding that adaptive RF delivers far more reliably, and it documents every place where its results differ.',
+      'Released an open, tested reference implementation of the paper’s computational experiment, archived on Zenodo with a DOI. It reproduces the data split and the Random Forest accuracy exactly, and the paper’s main finding that adaptive RF delivers far more reliably, and it documents every place where its results differ.',
     links: [
-      { label: 'Repository', href: 'https://github.com/TosinISOGUN/VoI-TinyML-RF' },
+      { label: 'Code (DOI)', href: 'https://doi.org/10.5281/zenodo.23478035' },
+      { label: 'GitHub', href: 'https://github.com/TosinISOGUN/VoI-TinyML-RF' },
     ],
   },
   {
