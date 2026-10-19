@@ -36,6 +36,7 @@ export const timeline: TimelineItem[] = [
       'Evaluated on accuracy, precision, recall and F1: 0.80, 0.90, 0.82 and 0.86.',
       'Written up as a manuscript with Dr. Agagu (see Publications).',
     ],
+    links: [{ label: 'Reference implementation', href: 'https://github.com/TosinISOGUN/traffic-speed-homography' }],
   },
   {
     id: 'weather-prediction',

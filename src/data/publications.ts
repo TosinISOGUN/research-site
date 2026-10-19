@@ -36,6 +36,7 @@ export const manuscripts: Publication[] = [
       'Accurately determining vehicle speeds is crucial for effective traffic management and road safety. However, achieving precise speed measurements poses significant challenges, especially when using wide-angle cameras prone to perspective distortion, where distant objects appear disproportionately smaller than those closer to the camera. To address this issue, our approach integrates core computer vision techniques, including object detection, object tracking, polygon zone mapping, and perspective correction using OpenCV, to estimate the speeds of tracked vehicles accurately. The model was evaluated on accuracy, precision, recall and F1 score. It achieved an accuracy of 0.80, a precision of 0.90, a recall of 0.82 and an F1 score of 0.86. The analysis and implementation improved speed estimation accuracy, particularly in scenarios affected by perspective distortion.',
     links: [
       { label: 'Manuscript (PDF)', href: 'https://drive.google.com/file/d/13QsFX7s7qGOjcoi7q1Zc7mqB6M7BBaN0/view?usp=sharing' },
+      { label: 'Reference implementation', href: 'https://github.com/TosinISOGUN/traffic-speed-homography' },
     ],
   },
 ];
