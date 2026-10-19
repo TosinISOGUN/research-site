@@ -24,7 +24,7 @@ in `src/main.tsx`, and add a link in `src/site.ts`.
 ```bash
 npm install
 npm run dev        # http://localhost:5173
-npm run build      # type-checks, then writes the site to dist/
+npm run build      # type-checks, builds the site, pre-renders every page into dist/
 npm run preview    # serve the built site locally
 npm run todos      # list placeholders still in the code
 ```
@@ -60,6 +60,25 @@ repository, set Settings, Pages, Source to **GitHub Actions**. For a custom subd
 DNS record pointing to `<username>.github.io`, enter the domain under Custom domain in the same
 settings, then enable Enforce HTTPS. The site uses relative paths, so it works from any sub-path or
 domain, and `dist/` can also be served by any static host.
+
+## Search and sharing
+
+- The site address is set once, in `.env` (`VITE_SITE_URL`). It feeds the canonical links, social
+  preview tags and structured data in the HTML files, and the sitemap and robots file. Change it
+  there if the domain changes.
+- `npm run build` pre-renders each page (`src/entry-server.tsx`, `scripts/prerender.mjs`), so the
+  HTML already contains the content for search engines and the browser then hydrates it. The same
+  step writes `dist/sitemap.xml` and `dist/robots.txt`.
+- Each HTML file has its own title, description and canonical link. The home page carries `Person`
+  data and the publications page carries `ScholarlyArticle` data. Update the latter in
+  `publications.html` when a paper is added.
+
+## Installable app
+
+The site is a progressive web app: `public/manifest.webmanifest` describes it, `public/sw.js` caches
+pages for offline use, and `src/main.tsx` registers the worker in production builds only. Pages load
+network-first, so a deploy shows on the next visit. Bump `VERSION` in `public/sw.js` to clear old
+caches. The icons in `public/icons/` and `public/apple-touch-icon.png` are cut from the portrait.
 
 ## Notes
 
