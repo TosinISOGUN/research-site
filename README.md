@@ -80,6 +80,12 @@ pages for offline use, and `src/main.tsx` registers the worker in production bui
 network-first, so a deploy shows on the next visit. Bump `VERSION` in `public/sw.js` to clear old
 caches. The icons in `public/icons/` and `public/apple-touch-icon.png` are cut from the portrait.
 
+## Footer dates
+
+The copyright year is the visitor's current year. "Last updated" is the month of the latest git
+commit that touched `src/data/`, `public/files/` or `public/images/`, read at build time in
+`vite.config.ts`. The deploy workflow checks out full history (`fetch-depth: 0`) so this works in CI.
+
 ## Notes
 
 - The wave under the introduction is decorative. It places a dot only where the signal has moved

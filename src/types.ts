@@ -23,7 +23,6 @@ export interface Profile {
   /** Introduction paragraphs. The first is shown in larger type. */
   intro: string[];
   links: ExternalLink[];
-  lastUpdated: string;
   /** Four or so headline figures shown as a strip on the home page. */
   glance: { value: string; label: string }[];
 }

@@ -40,6 +40,4 @@ export const profile: Profile = {
     { value: '94.44%', label: 'modelled packet-delivery ratio, against 70.78% for periodic telemetry' },
     { value: '4.09/5.00', label: 'CGPA, top 1% of the graduating class' },
   ],
-
-  lastUpdated: 'October 2026',
 };
