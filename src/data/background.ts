@@ -90,7 +90,7 @@ export const achievements: Achievement[] = [
   },
   {
     year: '2026',
-    text: 'Completed the 2026 Aspire Leaders Program, Aspire Institute (40 hours of coursework).',
+    text: 'Aspire Institute Leaders Program Scholarship.',
     link: certificate('aspire-leaders-program.png'),
   },
   { year: '2026', text: 'Asherkine 2026 TS Academy Tech Scholarship.' },
