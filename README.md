@@ -1,27 +1,23 @@
 # Research website: Oluwatomisin Isogun
 
-A multi-page academic site in the style of a university faculty page.
-Built with Vite, React 19 and TypeScript. No UI library, no CSS framework.
-Fonts: Instrument Serif for headings, Geist for text (both bundled, no Google Fonts call).
+An academic site in the style of a university faculty page, covering TinyML, computer vision and
+time-series modelling. Built with Vite, React 19 and TypeScript, with no UI library or CSS framework.
+Fonts (Instrument Serif and Geist) are bundled, so there are no third-party font requests.
 
 ## Pages
 
 | URL | Component | Content |
 | --- | --- | --- |
-| `index.html` | `src/pages/Home.tsx` | Hero, about, latest publication, direction, recent work |
+| `index.html` | `src/pages/Home.tsx` | Hero, at-a-glance figures, about, latest publication, research in brief, recent work |
 | `research.html` | `src/pages/Research.tsx` | Research direction and the research-path timeline |
 | `publications.html` | `src/pages/Publications.tsx` | Published work and manuscripts |
 | `teaching.html` | `src/pages/Teaching.tsx` | Teaching, mentoring and service |
-| `cv.html` | `src/pages/CV.tsx` | Education, honours, certifications, skills, CV download |
+| `cv.html` | `src/pages/CV.tsx` | Education, honours, certifications, skills, CV |
 | `contact.html` | `src/pages/Contact.tsx` | Email, profiles, availability |
 
-Every page is a real HTML file, so each has its own link you can paste into an email
-(for example `.../publications.html`). The navigation bar lives in `src/site.ts`; on screens
-narrower than about 830px it collapses into a menu button.
-
-To add a page: copy one of the HTML files and change `data-page`, add the file name to `pages` in
-`vite.config.ts`, create the component in `src/pages/`, register it in `src/main.tsx`, and add a link
-in `src/site.ts`.
+Each page is its own HTML file, so each has its own link. To add one: copy an HTML file and change
+`data-page`, add it to `pages` in `vite.config.ts`, create the component in `src/pages/`, register it
+in `src/main.tsx`, and add a link in `src/site.ts`.
 
 ## Run it
 
@@ -30,61 +26,44 @@ npm install
 npm run dev        # http://localhost:5173
 npm run build      # type-checks, then writes the site to dist/
 npm run preview    # serve the built site locally
+npm run todos      # list placeholders still in the code
 ```
 
-## Where to edit things
+## Where to edit
 
-All of the words live in `src/data/`. You should rarely need to touch a component.
+All the text lives in `src/data/`; components rarely need touching.
 
-| File | What it controls |
+| File | Controls |
 | --- | --- |
-| `src/data/profile.ts` | Name, role, photo, CV link, GitHub, LinkedIn, ORCID, introduction, "last updated" |
-| `src/data/timeline.ts` | The Research path timeline, oldest first, ending with "Next" |
-| `src/data/research.ts` | The Research direction section: focus, questions, related threads, keywords |
-| `src/data/publications.ts` | Published papers, plus a `manuscripts` list (the section hides itself when empty) |
-| `src/data/background.ts` | Education, teaching, honours, skills and languages |
-| `src/styles.css` | All styling. Colours and fonts are variables at the top |
-| `src/site.ts` | Navigation bar links |
+| `profile.ts` | Name, tagline, photo, CV link, profiles, introduction, at-a-glance figures, availability |
+| `research.ts` | Research direction: focus, questions, threads, keywords |
+| `timeline.ts` | Research path, oldest first, ending with "Next" |
+| `publications.ts` | Published papers and manuscripts (a section hides itself when empty) |
+| `background.ts` | Education, teaching, honours, certifications, skills |
+| `../site.ts` | Navigation links |
+| `../styles.css` | All styling; colours and fonts are variables at the top |
 
-## Finish the placeholders
+Links with no URL are hidden in the built site. Under `npm run dev` they show as a dashed "add URL"
+reminder. In `npm run todos`, a `TODO` comment is a note to the author and never appears on the site,
+while `[add: ...]` is visible text that must be replaced before publishing.
 
-```bash
-npm run todos
-```
+## Files
 
-lists every placeholder still in the code. Two kinds exist:
+Anything in `public/` is served as-is. Refer to it **without a leading slash**, for example
+`photo: 'images/profile.jpg'` or `href: 'files/cv.pdf'`. Links to local files open in a new tab. For an
+image inside a page, use `<img src={asset('images/figure.png')} alt="..." />` with `asset` from `src/lib.ts`.
 
-- `TODO` comments are instructions to you and never appear on the site.
-- `[add: ...]` is visible text on the page. Replace each one before you publish.
+## Deploy
 
-Links with no URL are hidden in the built site. While you run `npm run dev` they show as a dashed
-"add URL" reminder, so you can see what is missing.
+`.github/workflows/deploy.yml` builds and deploys to GitHub Pages on every push to `main`. In the
+repository, set Settings, Pages, Source to **GitHub Actions**. For a custom subdomain, add a `CNAME`
+DNS record pointing to `<username>.github.io`, enter the domain under Custom domain in the same
+settings, then enable Enforce HTTPS. The site uses relative paths, so it works from any sub-path or
+domain, and `dist/` can also be served by any static host.
 
-## Add a photo, CV and PDFs
+## Notes
 
-Anything in `public/` is served as-is. Put files there and refer to them **without a leading slash**:
-
-```
-public/images/profile.jpg     ->  photo: 'images/profile.jpg'
-public/files/cv.pdf           ->  cvUrl: 'files/cv.pdf'
-public/files/paper.pdf        ->  { label: 'PDF', href: 'files/paper.pdf' }
-```
-
-For screenshots or figures inside a section, drop them in `public/images/` and use
-`<img src={asset('images/figure1.png')} alt="..." />`, where `asset` is exported from `src/lib.ts`.
-
-## Publish it
-
-The workflow in `.github/workflows/deploy.yml` deploys to GitHub Pages on every push to `main`.
-In the repository, open Settings, then Pages, and set the source to **GitHub Actions**.
-The site also builds to plain static files in `dist/`, so Netlify, Vercel or any university web
-space will work too.
-
-## Notes on the design
-
-- The wave under the introduction is decorative. It draws a signal once and places a dot only where
-  the value has moved enough, which echoes the value-aware sensing in your paper. It is hidden from
-  screen readers and stops animating for people who prefer reduced motion.
-- Light and dark colours follow the visitor's system setting. The page also has a print layout.
-- The copy is a first draft written from what I know of your background. Read every sentence and
-  change anything that does not sound like you or overstates your role.
+- The wave under the introduction is decorative. It places a dot only where the signal has moved
+  enough, echoing the value-aware sensing in the paper. It is hidden from screen readers, hidden on
+  small screens, and static for visitors who prefer reduced motion.
+- Colours follow the visitor's light or dark system setting. There is also a print layout.
