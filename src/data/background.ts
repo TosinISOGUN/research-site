@@ -52,15 +52,33 @@ export const service: Entry[] = [
   },
 ];
 
+const certificate = (file: string) => ({ label: 'View certificate', href: `files/certificates/${file}` });
+
 export const certifications: Achievement[] = [
   {
     year: '2025',
     text: 'Six Sigma Yellow Belt (SSYB), Global Accreditation Body for Six Sigma Certifications.',
+    link: certificate('six-sigma-yellow-belt.png'),
   },
-  { year: '2025', text: 'Scrum Fundamentals Certified (SFC), Accreditation Body for Scrum and Agile.' },
+  {
+    year: '2025',
+    text: 'Scrum Fundamentals Certified (SFC), Accreditation Body for Scrum and Agile.',
+    link: certificate('scrum-fundamentals.png'),
+  },
   {
     year: '2025',
     text: 'Certificate of Proficiency in Project Management, Transatlantic School of Management.',
+    link: certificate('project-management.png'),
+  },
+  {
+    year: '2025',
+    text: 'Certificate of Participation, Building Ethical AI Frameworks for Project Management, AI Certs.',
+    link: certificate('ai-certs-ethical-ai.png'),
+  },
+  {
+    year: '2023',
+    text: 'Aptech Certified Hardware and Network Specialist, Aptech Computer Education (ACE Ibadan-2).',
+    link: certificate('aptech-hardware-network.png'),
   },
 ];
 
@@ -70,7 +88,11 @@ export const achievements: Achievement[] = [
     year: '2026',
     text: 'Co-authored a peer-reviewed, open-access article in the ISA Journal of Engineering and Technology.',
   },
-  { year: '2026', text: 'Aspire Institute Leaders Program Scholarship.' },
+  {
+    year: '2026',
+    text: 'Completed the 2026 Aspire Leaders Program, Aspire Institute (40 hours of coursework).',
+    link: certificate('aspire-leaders-program.png'),
+  },
   { year: '2026', text: 'Asherkine 2026 TS Academy Tech Scholarship.' },
   { year: '2024', text: 'Graduated in the top 1% of the Computer Science class (CGPA 4.09/5.00).' },
   { year: '2022', text: 'ALX Mastercard School of Software Engineering Scholarship.' },

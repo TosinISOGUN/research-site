@@ -21,7 +21,7 @@ export function ExtLink({ link }: { link: ExternalLink }) {
     <a
       className="link"
       href={href}
-      {...(isWeb ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+      {...(!isMail && !isAnchor ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
     >
       {link.label}
     </a>

@@ -149,6 +149,13 @@ img {
   font-weight: 400;
 }
 
+.row__link {
+  display: inline-block;
+  margin-left: 0.4rem;
+  font-size: 0.9rem;
+  white-space: nowrap;
+}
+
 .link-row {
   display: flex;
   flex-wrap: wrap;

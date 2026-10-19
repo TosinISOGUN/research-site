@@ -97,6 +97,8 @@ export interface TimelineItem {
 export interface Achievement {
   year: string;
   text: string;
+  /** Optional proof, e.g. a certificate image under /public. Opens in a new tab. */
+  link?: ExternalLink;
 }
 
 export interface SkillGroup {
