@@ -1,6 +1,6 @@
 // Service worker: lets the site be installed and keeps pages you have visited available offline.
 // Pages use the network first, so a deploy shows up on the next visit. Bump VERSION to clear old caches.
-const VERSION = 'v1';
+const VERSION = 'v2';
 const PAGES = `pages-${VERSION}`;
 const FILES = `files-${VERSION}`;
 
