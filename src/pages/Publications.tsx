@@ -20,7 +20,7 @@ export function Publications() {
           </Section>
         )}
         <Section id="software" title="Open-source software">
-          <SoftwareList items={software} />
+          <SoftwareList items={software} variant="list" />
         </Section>
       </div>
     </>
