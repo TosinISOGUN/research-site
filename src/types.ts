@@ -105,3 +105,50 @@ export interface SkillGroup {
   items: string[];
   note?: string;
 }
+
+/** An open-source project, shown on the home page and the Publications page. */
+export interface Software {
+  id: string;
+  name: string;
+  /** One or two plain sentences on what it does. */
+  description: string;
+  /** Short facts shown as a line, e.g. ['Python', 'MIT licence']. */
+  meta: string[];
+  /** The paper or manuscript it is the code for, if any. */
+  accompanies?: { title: string; venue: string };
+  links: ExternalLink[];
+}
+
+/** A figure reproduced from a paper or manuscript. Images live in public/images/figures/. */
+export interface ResultFigure {
+  src: string;
+  alt: string;
+  caption: string;
+  width: number;
+  height: number;
+  /** True for photographs and video frames, which sit edge to edge. Diagrams and charts have
+   *  white backgrounds, so they keep a white frame around them. */
+  photo?: boolean;
+}
+
+/** A small results table, written out as data so it stays sharp and readable on any screen. */
+export interface ResultTable {
+  caption: string;
+  columns: string[];
+  rows: string[][];
+  /** Index of a row to emphasise, e.g. the proposed method. */
+  highlightRow?: number;
+  note?: string;
+}
+
+/** Selected figures and tables for one piece of work, shown on the Research page. */
+export interface WorkResults {
+  id: string;
+  title: string;
+  /** Short citation and licence line shown under the block, e.g. where the figures come from. */
+  source: string;
+  summary: string;
+  figures: ResultFigure[];
+  tables: ResultTable[];
+  links?: ExternalLink[];
+}

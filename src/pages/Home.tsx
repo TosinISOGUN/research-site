@@ -1,6 +1,8 @@
 import { profile } from '../data/profile';
 import { publications } from '../data/publications';
-import { researchDirection } from '../data/research';
+import { researchDirection, researchInterests } from '../data/research';
+import { software } from '../data/software';
+import { SoftwareList } from '../components/SoftwareList';
 import { timeline } from '../data/timeline';
 import { Portrait } from '../components/Portrait';
 import { ExtLink } from '../components/ExtLink';
@@ -56,6 +58,23 @@ export function Home() {
         </div>
       </section>
 
+      <section className="home-section" aria-labelledby="interests-title">
+        <h2 id="interests-title" className="h2">
+          Research interests
+        </h2>
+        <ul className="interests">
+          {researchInterests.map((i) => (
+            <li key={i}>{i}</li>
+          ))}
+        </ul>
+        <p className="interests__next">
+          Where I am heading next: <em>{researchDirection.title}</em>.{' '}
+          <a className="link" href="research.html#direction">
+            Read the research direction
+          </a>
+        </p>
+      </section>
+
       {latest && (
         <section className="home-card home-card--wide" aria-labelledby="latest-title">
           <h2 id="latest-title" className="home-card__label">
@@ -78,24 +97,11 @@ export function Home() {
         </section>
       )}
 
-      <section className="home-section" aria-labelledby="brief-title">
-        <h2 id="brief-title" className="h2">
-          Research in brief
+      <section className="home-section" aria-labelledby="software-title">
+        <h2 id="software-title" className="h2">
+          Open-source software
         </h2>
-        <p className="muted">
-          Where I am heading: <em>{researchDirection.title}</em>.
-        </p>
-        <ul className="cards">
-          {researchDirection.threads.map((t) => (
-            <li key={t.title} className="home-card">
-              <h3 className="home-card__title">{t.title}</h3>
-              <p className="home-card__meta">{t.text}</p>
-            </li>
-          ))}
-        </ul>
-        <a className="link" href="research.html#direction">
-          Read the research direction
-        </a>
+        <SoftwareList items={software} />
       </section>
 
       <section className="home-section" aria-labelledby="recent-title">

@@ -36,3 +36,16 @@ export const researchDirection: ResearchDirection = {
     'Environmental monitoring',
   ],
 };
+
+// Shown as a plain list on the home page.
+export const researchInterests: string[] = [
+  'TinyML and embedded machine learning',
+  'Model quantisation and deployment on microcontrollers',
+  'Low-power intelligent sensing and IoT',
+  'Value of information in sensing and communication',
+  'Computer vision',
+  'Vision-based measurement',
+  'Time-series modelling and forecasting',
+  'Environmental monitoring',
+  'Applied machine learning',
+];

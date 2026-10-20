@@ -561,16 +561,151 @@ dd .chips {
   max-width: 46rem;
 }
 
-.cards {
+/* Research interests: a plain two-column list */
+.interests {
+  columns: 2 18rem;
+  column-gap: 3rem;
+  margin: 0;
+  padding-left: 1.2rem;
+}
+.interests li {
+  break-inside: avoid;
+  margin-bottom: 0.45rem;
+  padding-left: 0.2rem;
+}
+.interests li::marker {
+  color: var(--accent);
+}
+.interests__next {
+  margin: 1.5rem 0 0;
+  color: var(--muted);
+}
+
+/* Open-source software */
+.software {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 22rem), 1fr));
   gap: 1.25rem;
-  margin: 1.5rem 0;
+  margin: 0;
   padding: 0;
   list-style: none;
 }
-.cards .home-card__title {
-  font-size: 1.4rem;
+.software__item {
+  display: flex;
+  flex-direction: column;
+  padding: 1.6rem 1.75rem;
+  border: 1px solid var(--rule);
+  border-radius: var(--radius);
+  background: var(--surface);
+}
+.software__name {
+  font-family: ui-monospace, 'Cascadia Code', Consolas, monospace;
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin-bottom: 0.6rem;
+}
+.software__paper {
+  margin-bottom: 0.75rem;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+.software__desc {
+  flex: 1;
+  margin-bottom: 0.75rem;
+}
+.software__meta {
+  margin-bottom: 0;
+  font-size: 0.875rem;
+  color: var(--muted);
+}
+
+/* Selected results: figures and tables */
+.results__work + .results__work {
+  margin-top: 3rem;
+  padding-top: 2.5rem;
+  border-top: 1px dashed var(--rule);
+}
+.results__title {
+  font-size: 1.15rem;
+  font-weight: 600;
+  line-height: 1.4;
+  margin-bottom: 0.75rem;
+}
+.figure {
+  margin: 1.75rem 0;
+}
+.figure__frame {
+  display: block;
+  padding: 0.75rem;
+  border: 1px solid var(--rule);
+  border-radius: var(--radius);
+  /* Figures from the PDFs have white backgrounds, so keep them on white in dark mode too. */
+  background: #fff;
+}
+.figure__frame--photo {
+  padding: 0;
+  overflow: hidden;
+  background: var(--surface);
+}
+.figure__frame--photo img {
+  border-radius: 0;
+}
+.figure__frame img {
+  width: 100%;
+  height: auto;
+  border-radius: calc(var(--radius) - 6px);
+}
+.figure figcaption {
+  margin-top: 0.6rem;
+  font-size: 0.9rem;
+  line-height: 1.55;
+  color: var(--muted);
+}
+.table-wrap {
+  overflow-x: auto;
+  border: 1px solid var(--rule);
+  border-radius: var(--radius);
+  background: var(--surface);
+}
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.92rem;
+  font-variant-numeric: tabular-nums;
+}
+.table-title {
+  margin: 0 0 0.5rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+.data-table th,
+.data-table td {
+  padding: 0.6rem 1rem;
+  text-align: right;
+  white-space: nowrap;
+  border-bottom: 1px solid var(--rule);
+}
+.data-table thead th {
+  font-weight: 600;
+  color: var(--muted);
+  background: var(--tint);
+}
+.data-table th[scope='row'],
+.data-table thead th:first-child {
+  text-align: left;
+  font-weight: 500;
+}
+.data-table tbody tr:last-child > * {
+  border-bottom: 0;
+}
+.data-table tr.is-highlight > * {
+  font-weight: 600;
+  color: var(--accent);
+}
+.results__source {
+  margin: 0;
+  font-size: 0.85rem;
+  color: var(--muted);
 }
 
 .home-card {
@@ -1064,9 +1199,6 @@ dd .chips {
   }
   .glance {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-  .cards {
-    grid-template-columns: minmax(0, 1fr);
   }
   .band {
     flex-direction: column;
