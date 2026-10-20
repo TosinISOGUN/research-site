@@ -13,7 +13,8 @@ Fonts (Instrument Serif and Geist) are bundled, so there are no third-party font
 | `publications.html` | `src/pages/Publications.tsx` | Published work and manuscripts |
 | `teaching.html` | `src/pages/Teaching.tsx` | Teaching, mentoring and service |
 | `cv.html` | `src/pages/CV.tsx` | Education, honours, certifications, skills, CV |
-| `contact.html` | `src/pages/Contact.tsx` | Email, profiles, availability |
+| `contact.html` | `src/pages/Contact.tsx` | Email (with a copy button), profiles, availability |
+| `404.html` | `src/pages/NotFound.tsx` | Page-not-found screen |
 
 Each page is its own HTML file, so each has its own link. To add one: copy an HTML file and change
 `data-page`, add it to `pages` in `vite.config.ts`, create the component in `src/pages/`, register it
@@ -74,6 +75,12 @@ domain, and `dist/` can also be served by any static host.
 - Each HTML file has its own title, description and canonical link. The home page carries `Person`
   data and the publications page carries `ScholarlyArticle` data. Update the latter in
   `publications.html` when a paper is added.
+- Link previews: the home page uses `public/images/og-card.png`; every other page has its own card in
+  `public/images/share/`. They are committed images, redrawn with `scripts/share-cards.mjs` (the
+  header of that file says how to run it). Change the card wording there, then update the matching
+  `og:image:alt` text in the page's HTML file.
+- `404.html` is the page GitHub Pages shows for an address that does not exist. It sets a `<base>` from
+  `VITE_SITE_URL` so its links and assets work from any depth of path, and it is left out of the sitemap.
 
 ## Installable app
 
