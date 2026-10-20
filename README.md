@@ -79,6 +79,10 @@ domain, and `dist/` can also be served by any static host.
   `public/images/share/`. They are committed images, redrawn with `scripts/share-cards.mjs` (the
   header of that file says how to run it). Change the card wording there, then update the matching
   `og:image:alt` text in the page's HTML file.
+- Google shows a favicon beside the site in search results only if it is a square whose side is a
+  multiple of 48px, is linked from the home page, and keeps the same address. `public/favicon.png` and
+  `public/apple-touch-icon.png` are 192px, `public/favicon.ico` holds 48, 96 and 192px copies, and
+  `robots.txt` does not block them. Keep those sizes if you replace the portrait, and do not rename the files.
 - `404.html` is the page GitHub Pages shows for an address that does not exist. It sets a `<base>` from
   `VITE_SITE_URL` so its links and assets work from any depth of path, and it is left out of the sitemap.
 
