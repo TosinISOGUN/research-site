@@ -3,7 +3,7 @@
 // add it to the `pages` list in vite.config.ts, add a component in src/pages/,
 // register it in src/main.tsx, and add a link here.
 
-export type PageKey = 'home' | 'research' | 'publications' | 'teaching' | 'cv' | 'contact';
+export type PageKey = 'home' | 'research' | 'publications' | 'teaching' | 'cv' | 'contact' | 'notfound';
 
 export interface NavLink {
   key: PageKey;

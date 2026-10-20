@@ -13,6 +13,7 @@ const PAGES = [
   { file: 'teaching.html', key: 'teaching', path: 'teaching.html' },
   { file: 'cv.html', key: 'cv', path: 'cv.html' },
   { file: 'contact.html', key: 'contact', path: 'contact.html' },
+  { file: '404.html', key: 'notfound', path: null }, // rendered, but kept out of the sitemap
 ];
 
 const siteUrl = loadEnv('production', process.cwd(), 'VITE_').VITE_SITE_URL;
@@ -29,7 +30,7 @@ for (const page of PAGES) {
 }
 
 const today = new Date().toISOString().slice(0, 10);
-const urls = PAGES.map((p) => `  <url><loc>${siteUrl}${p.path}</loc><lastmod>${today}</lastmod></url>`).join('\n');
+const urls = PAGES.filter((p) => p.path !== null).map((p) => `  <url><loc>${siteUrl}${p.path}</loc><lastmod>${today}</lastmod></url>`).join('\n');
 writeFileSync(
   resolve('dist/sitemap.xml'),
   `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls}\n</urlset>\n`,

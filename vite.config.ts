@@ -5,7 +5,7 @@ import { execSync } from 'node:child_process';
 
 // Each page is a real HTML file, so every page has its own URL
 // (e.g. /publications.html) that you can paste into an email.
-const pages = ['index', 'research', 'publications', 'teaching', 'cv', 'contact'];
+const pages = ['index', 'research', 'publications', 'teaching', 'cv', 'contact', '404'];
 const root = fileURLToPath(new URL('.', import.meta.url));
 
 // "Last updated" in the footer: the month of the latest commit that touched the site's content
