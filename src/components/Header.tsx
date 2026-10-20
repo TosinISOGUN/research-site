@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { profile } from '../data/profile';
 import { HOME_HREF, NAV, type PageKey } from '../site';
+import { ThemeToggle } from './ThemeToggle';
 
 const DESKTOP = '(min-width: 52rem)';
 
@@ -46,22 +47,26 @@ export function Header({ current }: { current: PageKey }) {
           <span className="brand__name">{profile.name}</span>
         </a>
 
-        <nav className="nav" aria-label="Main">
-          <ul>{links}</ul>
-        </nav>
+        <div className="header__right">
+          <nav className="nav" aria-label="Main">
+            <ul>{links}</ul>
+          </nav>
 
-        <button
-          type="button"
-          className="menu-button"
-          aria-expanded={open}
-          aria-controls="mobile-menu"
-          aria-label={open ? 'Close menu' : 'Open menu'}
-          onClick={() => setOpen((o) => !o)}
-        >
-          <span className="menu-button__bar" />
-          <span className="menu-button__bar" />
-          <span className="menu-button__bar" />
-        </button>
+          <ThemeToggle />
+
+          <button
+            type="button"
+            className="menu-button"
+            aria-expanded={open}
+            aria-controls="mobile-menu"
+            aria-label={open ? 'Close menu' : 'Open menu'}
+            onClick={() => setOpen((o) => !o)}
+          >
+            <span className="menu-button__bar" />
+            <span className="menu-button__bar" />
+            <span className="menu-button__bar" />
+          </button>
+        </div>
       </div>
     </header>
 
