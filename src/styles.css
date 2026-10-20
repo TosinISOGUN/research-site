@@ -359,15 +359,16 @@ img {
 .mobile-menu[hidden] {
   display: none;
 }
-.mobile-menu ul {
+/* Page links only: the icon row below the list has its own styles (.social). */
+.mobile-menu ul:not(.social) {
   list-style: none;
   margin: 0;
   padding: 1rem 0 0;
 }
-.mobile-menu li {
+.mobile-menu ul:not(.social) li {
   border-bottom: 1px solid var(--rule);
 }
-.mobile-menu ul a {
+.mobile-menu ul:not(.social) a {
   display: block;
   padding: 0.85rem 0;
   font-family: var(--display);
@@ -376,15 +377,12 @@ img {
   color: var(--text);
   text-decoration: none;
 }
-.mobile-menu ul a[aria-current='page'] {
+.mobile-menu ul:not(.social) a[aria-current='page'] {
   color: var(--accent);
 }
-.mobile-menu__email {
+.social.mobile-menu__social {
   margin-top: 1.75rem;
-  font-size: 0.95rem;
-}
-.mobile-menu__email a {
-  color: var(--muted);
+  padding-bottom: 2rem;
 }
 
 @keyframes menu-in {
