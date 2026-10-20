@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { profile } from '../data/profile';
 import { HOME_HREF, NAV, type PageKey } from '../site';
 import { ThemeToggle } from './ThemeToggle';
+import { SocialLinks } from './SocialLinks';
 
 const DESKTOP = '(min-width: 52rem)';
 
@@ -80,9 +81,7 @@ export function Header({ current }: { current: PageKey }) {
             </li>
             {links}
           </ul>
-          <p className="mobile-menu__email">
-            <a href={`mailto:${profile.email}`}>{profile.email}</a>
-          </p>
+          <SocialLinks className="mobile-menu__social" />
         </nav>
       </div>
     </>
