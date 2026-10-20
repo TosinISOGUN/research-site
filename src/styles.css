@@ -1113,6 +1113,68 @@ dd .chips {
   overflow-wrap: anywhere;
 }
 
+.contact-actions {
+  margin-top: 1.1rem;
+}
+.copy-email {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-height: 2.5rem;
+  padding: 0 1.1rem 0 0.95rem;
+  border: 1px solid var(--rule);
+  border-radius: 999px;
+  background: var(--surface);
+  color: var(--text);
+  font: inherit;
+  font-size: 0.92rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: color 0.15s, border-color 0.15s, background-color 0.15s;
+}
+.copy-email:hover {
+  border-color: var(--muted);
+}
+.copy-email[data-state='copied'] {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+.copy-email .icon {
+  width: 1.05rem;
+  height: 1.05rem;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+.main:focus {
+  outline: none;
+}
+
+.actions--flush {
+  margin-top: 0;
+}
+.notfound__label {
+  margin: 2.25rem 0 0.5rem;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+.notfound__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 1.5rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
 .details {
   margin: 2.75rem 0 0;
 }
@@ -1356,6 +1418,7 @@ dd .chips {
   .trace,
   .skip-link,
   .actions,
+  .copy-email,
   .band .button,
   .link--button {
     display: none !important;

@@ -1,6 +1,7 @@
 import { profile } from '../data/profile';
 import { PageHeader } from '../components/Layout';
 import { ExtLink } from '../components/ExtLink';
+import { CopyEmail } from '../components/CopyEmail';
 
 export function Contact() {
   return (
@@ -13,6 +14,9 @@ export function Contact() {
         <a className="contact-email" href={`mailto:${profile.email}`}>
           {profile.email}
         </a>
+        <div className="contact-actions">
+          <CopyEmail email={profile.email} />
+        </div>
 
         <dl className="details">
           <div>

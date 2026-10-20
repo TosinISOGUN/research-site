@@ -1,0 +1,33 @@
+﻿<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Page not found | Oluwatomisin Isogun</title>
+    <meta name="robots" content="noindex" />
+    <!-- GitHub Pages serves this file for any missing address, including nested ones such as
+         /a/b/c, where relative links like "research.html" would point at the wrong place.
+         The base makes every link and asset resolve from the site root. -->
+    <base href="%VITE_SITE_URL%" />
+    <meta name="theme-color" content="#F6F7F3" />
+    <script>
+      // Light is the default. Apply a saved dark choice before first paint so the page does not flash.
+      try {
+        if (localStorage.getItem('theme') === 'dark') {
+          document.documentElement.setAttribute('data-theme', 'dark');
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0D1310');
+        }
+      } catch (e) {}
+    </script>
+    <style>
+      html[data-theme='dark'] { background: #0d1310; color-scheme: dark; }
+    </style>
+    <link rel="icon" type="image/png" href="favicon.png" />
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+    <link rel="manifest" href="manifest.webmanifest" />
+  </head>
+  <body data-page="notfound">
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

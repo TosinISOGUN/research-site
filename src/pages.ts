@@ -6,6 +6,7 @@ import { Publications } from './pages/Publications';
 import { Teaching } from './pages/Teaching';
 import { CV } from './pages/CV';
 import { Contact } from './pages/Contact';
+import { NotFound } from './pages/NotFound';
 
 // Each HTML file says which page it is with <body data-page="...">.
 export const PAGES: Record<PageKey, ComponentType> = {
@@ -15,4 +16,5 @@ export const PAGES: Record<PageKey, ComponentType> = {
   teaching: Teaching,
   cv: CV,
   contact: Contact,
+  notfound: NotFound,
 };
