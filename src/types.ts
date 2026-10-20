@@ -110,6 +110,8 @@ export interface SkillGroup {
 export interface Software {
   id: string;
   name: string;
+  /** Year of the first release. */
+  year: number;
   /** One or two plain sentences on what it does. */
   description: string;
   /** Short facts shown as a line, e.g. ['Python', 'MIT licence']. */
