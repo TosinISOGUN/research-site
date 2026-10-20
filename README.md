@@ -36,7 +36,9 @@ All the text lives in `src/data/`; components rarely need touching.
 | File | Controls |
 | --- | --- |
 | `profile.ts` | Name, tagline, photo, CV link, profiles, introduction, at-a-glance figures, availability |
-| `research.ts` | Research direction: focus, questions, threads, keywords |
+| `research.ts` | Research direction (focus, questions, threads, keywords) and the research-interests list |
+| `software.ts` | Open-source software, shown on the home and Publications pages |
+| `results.ts` | Selected figures and tables on the Research page; images in `public/images/figures/` |
 | `timeline.ts` | Research path, oldest first, ending with "Next" |
 | `publications.ts` | Published papers and manuscripts (a section hides itself when empty) |
 | `background.ts` | Education, teaching, honours, certifications, skills |

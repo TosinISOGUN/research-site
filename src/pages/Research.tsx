@@ -3,6 +3,8 @@ import { timeline } from '../data/timeline';
 import { PageHeader } from '../components/Layout';
 import { Section } from '../components/Section';
 import { Timeline } from '../components/Timeline';
+import { Results } from '../components/Results';
+import { results } from '../data/results';
 
 export function Research() {
   return (
@@ -35,6 +37,11 @@ export function Research() {
               <li key={k}>{k}</li>
             ))}
           </ul>
+        </Section>
+
+        <Section id="results" title="Selected results">
+          <p className="muted">Figures and tables from my published paper and my thesis manuscript.</p>
+          <Results items={results} />
         </Section>
 
         <Section id="path" title="Research path">
