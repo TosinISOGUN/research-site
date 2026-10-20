@@ -66,6 +66,14 @@ body.menu-open {
   overflow: hidden;
 }
 
+/* Short pages: let <main> take the spare height so the footer rests at the bottom of the screen. */
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  min-height: 100dvh;
+}
+
 p {
   margin: 0 0 1rem;
 }
@@ -409,6 +417,7 @@ img {
    Page scaffolding
    ========================================================= */
 .main {
+  flex: 1 0 auto;
   padding-bottom: 5rem;
 }
 
