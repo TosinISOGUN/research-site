@@ -1,17 +1,59 @@
 import type { Software } from '../types';
-import { LinkRow } from './ExtLink';
+import { ExtLink, LinkRow } from './ExtLink';
 
-/** Open-source projects as cards: name, what it does, a facts line and links. */
-export function SoftwareList({ items, level = 3 }: { items: Software[]; level?: 2 | 3 }) {
-  const Heading = `h${level}` as const;
+interface Props {
+  items: Software[];
+  /** 'cards' for the home page; 'list' matches the layout of the publication lists. */
+  variant?: 'cards' | 'list';
+}
+
+function PaperLine({ accompanies }: { accompanies: NonNullable<Software['accompanies']> }) {
+  return (
+    <>
+      Code for <em>“{accompanies.title}”</em> ({accompanies.venue})
+    </>
+  );
+}
+
+export function SoftwareList({ items, variant = 'cards' }: Props) {
+  if (variant === 'list') {
+    return (
+      <ol className="pubs">
+        {items.map((s) => (
+          <li key={s.id} className="pub">
+            <p className="pub__year">{s.year}</p>
+            <div className="pub__body">
+              <h3 className="pub__title">{s.name}</h3>
+              {s.accompanies && (
+                <p className="pub__authors">
+                  <PaperLine accompanies={s.accompanies} />
+                </p>
+              )}
+              <p className="pub__venue">
+                {s.meta.join(' · ')}
+                <span className="tag tag--published">Released</span>
+              </p>
+              <p className="pub__note">{s.description}</p>
+              <p className="link-row">
+                {s.links.map((link) => (
+                  <ExtLink key={link.label} link={link} />
+                ))}
+              </p>
+            </div>
+          </li>
+        ))}
+      </ol>
+    );
+  }
+
   return (
     <ul className="software">
       {items.map((s) => (
         <li key={s.id} className="software__item">
-          <Heading className="software__name">{s.name}</Heading>
+          <h3 className="software__name">{s.name}</h3>
           {s.accompanies && (
             <p className="software__paper">
-              Code for <em>“{s.accompanies.title}”</em> ({s.accompanies.venue})
+              <PaperLine accompanies={s.accompanies} />
             </p>
           )}
           <p className="software__desc">{s.description}</p>
